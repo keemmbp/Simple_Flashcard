@@ -1,0 +1,61 @@
+body {
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #f0f2f5; /* A light grey background */
+    padding-top: 20px;
+}
+
+#flashcard-container {
+    cursor: pointer; /* Indicates it's clickable to flip */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #ffffff; /* White background for the card */
+    border-radius: .28571429rem; /* Match Semantic UI's border-radius */
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5; /* Match Semantic UI's shadow */
+    min-height: 260px; /* Accommodate ~4 lines of text + padding to prevent layout shift */
+}
+
+/* Styles for the card face (question/answer) */
+.card-face {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ensure it takes full width of its container */
+    height: 100%; /* Ensure it takes full height if possible */
+    text-align: center; /* Reinforce text alignment */
+    line-height: 1.6; /* Improve readability for multi-line text */
+}
+
+/* Add some margin between segments */
+.ui.segment + .ui.segment {
+    margin-top: 2em;
+}
+/* Class to hide the "Add New Card" form */
+.hidden-form {
+    display: none !important; /* Use !important to ensure override if needed */
+}
+/* Mobile-specific button styling */
+@media (max-width: 767px) { /* Semantic UI's mobile breakpoint */
+    #controls-container .ui.button,
+    #add-card-form .ui.button[type="submit"],
+    #card-management-actions .ui.button {
+        display: block;
+        width: 100%;
+        margin-left: 0 !important; /* Override Semantic UI's inline-block margins */
+        margin-right: 0 !important;
+    }
+
+    #controls-container .ui.button:not(:last-child) {
+        margin-bottom: 10px !important;
+    }
+    
+    /* Ensure the main container has some padding on mobile */
+    .ui.container {
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+    }
+}
